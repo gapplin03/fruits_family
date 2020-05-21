@@ -19,9 +19,9 @@ public class Ichiro extends Family {
     if (fruit.equals("apple")) {
       return;
     }
-    String color = getBananaColor(fruitData);
-    int amount = getBananaAmount(fruitData);
-    int taste = getBananaTaste(fruitData);
+    String color = Fruits.getBananaColor(fruitData);
+    int amount = Fruits.getBananaAmount(fruitData);
+    int taste = Fruits.getBananaTaste(fruitData);
     int manpuku = personData[0];
 
     // 白色のバナナは２倍の効果
@@ -40,40 +40,5 @@ public class Ichiro extends Family {
     personData[1] = personData[1] + amount;
 
   }
-
-    // バナナの色を返す関数
-    private String getBananaColor(String[] data) {
-      return data[0];
-    }
-
-    // バナナの量を返す関数
-    private int getBananaAmount(String[] data) {
-      return Integer.parseInt(data[1]) * Integer.parseInt(data[3]);
-    }
-
-    // バナナのうまみ具合を返す関数
-    private int getBananaTaste(String[] data) {
-      return Integer.parseInt(data[2]);
-    }
-
-    // りんごの色を返す関数
-    // private static String getAppleColor(String[] data) {
-    //   return data[0];
-    // }
-
-    // りんごの量を返す関数
-    // private static int getAppleAmount(String[] data) {
-    //   return Integer.parseInt(data[1]);
-    // }
-
-    // りんごのうまみ具合を返す関数
-    // private static int getAppleTaste(String[] data) {
-    //   return Integer.parseInt(data[2]);
-    // }
-
-    // りんごのブランドを返す関数
-    // private static String getAppleBland(String[] data) {
-    //   return data[3];
-    // }
 
 }

@@ -18,10 +18,10 @@ public class Jiro extends Family {
   protected void eat(int[] personData, String fruit, String[] fruitData) {
     // りんご
     if (fruit.equals("apple")) {
-      String color = getAppleColor(fruitData);
-      int amount = getAppleAmount(fruitData);
-      int taste = getAppleTaste(fruitData);
-      String bland = getAppleBland(fruitData);
+      String color = Fruits.getAppleColor(fruitData);
+      int amount = Fruits.getAppleAmount(fruitData);
+      int taste = Fruits.getAppleTaste(fruitData);
+      String bland = Fruits.getAppleBland(fruitData);
 
       // 効果
       int kouka = 1;
@@ -40,9 +40,9 @@ public class Jiro extends Family {
 
     // バナナ
     } else {
-      String color = getBananaColor(fruitData);
-      int amount = getBananaAmount(fruitData);
-      int taste = getBananaTaste(fruitData);
+      String color = Fruits.getBananaColor(fruitData);
+      int amount = Fruits.getBananaAmount(fruitData);
+      int taste = Fruits.getBananaTaste(fruitData);
 
       // 白色のバナナは２倍の効果
       int kouka = 1;
@@ -58,40 +58,5 @@ public class Jiro extends Family {
     }
 
   }
-
-    // バナナの色を返す関数
-    private String getBananaColor(String[] data) {
-      return data[0];
-    }
-
-    // バナナの量を返す関数
-    private int getBananaAmount(String[] data) {
-      return Integer.parseInt(data[1]) * Integer.parseInt(data[3]);
-    }
-
-    // バナナのうまみ具合を返す関数
-    private int getBananaTaste(String[] data) {
-      return Integer.parseInt(data[2]);
-    }
-
-    // りんごの色を返す関数
-    private String getAppleColor(String[] data) {
-      return data[0];
-    }
-
-    // りんごの量を返す関数
-    private int getAppleAmount(String[] data) {
-      return Integer.parseInt(data[1]);
-    }
-
-    // りんごのうまみ具合を返す関数
-    private int getAppleTaste(String[] data) {
-      return Integer.parseInt(data[2]);
-    }
-
-    // りんごのブランドを返す関数
-    private String getAppleBland(String[] data) {
-      return data[3];
-    }
 
 }

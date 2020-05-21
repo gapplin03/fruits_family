@@ -18,50 +18,14 @@ public class Saburo extends Family {
   protected void eat(int[] personData, String fruit, String[] fruitData) {
     // りんご
     if (fruit.equals("apple")) {
-      personData[0] += getAppleAmount(fruitData); // 量
-      personData[1] += getAppleTaste(fruitData);  // 味
+      personData[0] += Fruits.getAppleAmount(fruitData); // 量
+      personData[1] += Fruits.getAppleTaste(fruitData);  // 味
 
       // バナナ
     } else {
-      personData[2] += getBananaAmount(fruitData);  // 量
-      personData[3] += getBananaTaste(fruitData);   // 味
+      personData[2] += Fruits.getBananaAmount(fruitData);  // 量
+      personData[3] += Fruits.getBananaTaste(fruitData);   // 味
     }
 
   }
-
-    // バナナの色を返す関数
-    // private String getBananaColor(String[] data) {
-    //   return data[0];
-    // }
-
-    // バナナの量を返す関数
-    private int getBananaAmount(String[] data) {
-      return Integer.parseInt(data[1]) * Integer.parseInt(data[3]);
-    }
-
-    // バナナのうまみ具合を返す関数
-    private int getBananaTaste(String[] data) {
-      return Integer.parseInt(data[2]);
-    }
-
-    // りんごの色を返す関数
-    // private String getAppleColor(String[] data) {
-    //   return data[0];
-    // }
-
-    // りんごの量を返す関数
-    private int getAppleAmount(String[] data) {
-      return Integer.parseInt(data[1]);
-    }
-
-    // りんごのうまみ具合を返す関数
-    private int getAppleTaste(String[] data) {
-      return Integer.parseInt(data[2]);
-    }
-
-    // りんごのブランドを返す関数
-    // private String getAppleBland(String[] data) {
-    //   return data[3];
-    // }
-
 }
