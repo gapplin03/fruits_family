@@ -1,11 +1,11 @@
 abstract class Family {
   //空腹かどうかを返す
-  abstract boolean isHungry(int[] data);
+  abstract boolean isHungry();
 
   //幸福度を返す
-  abstract int isHappyPercent(int[] data);
+  abstract int isHappyPercent();
 
   //食べる処理
-  abstract void eat(int[] personData, String fruit, String[] fruitData);
+  abstract void eat(String fruit, String[] fruitData);
 
 }
