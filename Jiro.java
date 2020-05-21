@@ -1,21 +1,21 @@
-public class Jiro {
+public class Jiro extends Family {
   int[] jiroData = { 0, 0};
 
   // 次郎が空腹かどうかを返す
-  public boolean isHungry(int[] data) {
+  protected boolean isHungry(int[] data) {
     // 次郎のデータは配列になってて、１つ目が満腹度。満腹度８０％を超えると空腹感はなくなる子。
     return data[0] < (2000*0.8);
   }
 
   // 次郎の幸福度を返す
-  public int isHappyPercent(int[] data) {
+  protected int isHappyPercent(int[] data) {
     // 次郎のデータは配列になってて、２つめが幸福度。
     return data[1];
   }
 
 
   // 次郎が食べる処理
-  public void eat(int[] personData, String fruit, String[] fruitData) {
+  protected void eat(int[] personData, String fruit, String[] fruitData) {
     // りんご
     if (fruit.equals("apple")) {
       String color = getAppleColor(fruitData);
