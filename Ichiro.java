@@ -1,26 +1,40 @@
-public class Ichiro {
+public class Ichiro extends Family {
+  // int[] ichiroData = { 0, 0};
+  private String name = "Ichiro";
+  private int hungry;
+  private int happy;
+
+  Ichiro(int hungry, int happy){
+    this.hungry = hungry;
+    this.happy = happy;
+  }
+
+  public String getName(){
+    return this.name;
+  }
+
   // 一郎が空腹かどうかを返す
-  public static boolean isHungry(String[] data) {
+  public boolean isHungry() {
     // 一郎のデータは配列になってて、１つ目が満腹度。満腹度１００％にならないと空腹感はなくならない子。
-    return Integer.parseInt(data[0]) < (2000*1.0);
+    return this.hungry < (2000*1.0);
   }
 
   // 一郎の幸福度を返す
-  public static String isHappyPercent(String[] data) {
+  public int isHappyPercent() {
     // 一郎のデータは配列になってて、２つめが幸福度。
-    return data[1];
+    return this.happy;
   }
 
   // 一郎が食べる処理
-  public static void eat(String[] personData, String fruit, String[] fruitData) {
+  public void eat(String fruit, String[] fruitData) {
     // 一郎はりんごを食べない
     if (fruit.equals("apple")) {
       return;
     }
-    String color = getBananaColor(fruitData);
-    int amount = getBananaAmount(fruitData);
-    int taste = getBananaTaste(fruitData);
-    int manpuku = Integer.parseInt(personData[0]);
+    String color = Fruits.getBananaColor(fruitData);
+    int amount = Fruits.getBananaAmount(fruitData);
+    int taste = Fruits.getBananaTaste(fruitData);
+    int manpuku = this.hungry;
 
     // 白色のバナナは２倍の効果
     int kouka = 1;
@@ -32,46 +46,11 @@ public class Ichiro {
     manpuku += amount * taste * kouka;
 
     // 満腹度データを更新
-    personData[0] = String.valueOf(manpuku);
+    this.hungry = manpuku;
 
     // 幸福度データを更新する。一郎は量によって幸福度が上がる
-    personData[1] = String.valueOf(Integer.parseInt(personData[1]) + amount);
+    this.happy = this.happy + amount;
 
   }
-
-    // バナナの色を返す関数
-    private static String getBananaColor(String[] data) {
-      return data[0];
-    }
-
-    // バナナの量を返す関数
-    private static int getBananaAmount(String[] data) {
-      return Integer.parseInt(data[1]) * Integer.parseInt(data[3]);
-    }
-
-    // バナナのうまみ具合を返す関数
-    private static int getBananaTaste(String[] data) {
-      return Integer.parseInt(data[2]);
-    }
-
-    // りんごの色を返す関数
-    // private static String getAppleColor(String[] data) {
-    //   return data[0];
-    // }
-
-    // りんごの量を返す関数
-    // private static int getAppleAmount(String[] data) {
-    //   return Integer.parseInt(data[1]);
-    // }
-
-    // りんごのうまみ具合を返す関数
-    // private static int getAppleTaste(String[] data) {
-    //   return Integer.parseInt(data[2]);
-    // }
-
-    // りんごのブランドを返す関数
-    // private static String getAppleBland(String[] data) {
-    //   return data[3];
-    // }
 
 }

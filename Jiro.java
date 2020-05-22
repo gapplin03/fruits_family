@@ -1,25 +1,39 @@
-public class Jiro {
+public class Jiro extends Family {
+  // int[] jiroData = { 0, 0};
+  private String name = "Jiro";
+  private int hungry;
+  private int happy;
+
+  Jiro(int hungry, int happy){
+    this.hungry = hungry;
+    this.happy = happy;
+  }
+
+  public String getName(){
+    return this.name;
+  }
+
   // 次郎が空腹かどうかを返す
-  public static boolean isHungry(int[] data) {
+  public boolean isHungry() {
     // 次郎のデータは配列になってて、１つ目が満腹度。満腹度８０％を超えると空腹感はなくなる子。
-    return data[0] < (2000*0.8);
+    return this.hungry < (2000*0.8);
   }
 
   // 次郎の幸福度を返す
-  public static int isHappyPercent(int[] data) {
+  public int isHappyPercent() {
     // 次郎のデータは配列になってて、２つめが幸福度。
-    return data[1];
+    return this.happy;
   }
 
 
   // 次郎が食べる処理
-  public static void eat(int[] personData, String fruit, String[] fruitData) {
+  public void eat(String fruit, String[] fruitData) {
     // りんご
     if (fruit.equals("apple")) {
-      String color = getAppleColor(fruitData);
-      int amount = getAppleAmount(fruitData);
-      int taste = getAppleTaste(fruitData);
-      String bland = getAppleBland(fruitData);
+      String color = Fruits.getAppleColor(fruitData);
+      int amount = Fruits.getAppleAmount(fruitData);
+      int taste = Fruits.getAppleTaste(fruitData);
+      String bland = Fruits.getAppleBland(fruitData);
 
       // 効果
       int kouka = 1;
@@ -31,16 +45,16 @@ public class Jiro {
       }
 
       // 量 * 味 を満腹度に加算する
-      personData[0] += amount * taste;
+      this.hungry += amount * taste;
 
       // 幸福度データを更新する。次郎は味・色・ブランドによって幸福度が上がる
-      personData[1] += taste * kouka;
+      this.happy += taste * kouka;
 
     // バナナ
     } else {
-      String color = getBananaColor(fruitData);
-      int amount = getBananaAmount(fruitData);
-      int taste = getBananaTaste(fruitData);
+      String color = Fruits.getBananaColor(fruitData);
+      int amount = Fruits.getBananaAmount(fruitData);
+      int taste = Fruits.getBananaTaste(fruitData);
 
       // 白色のバナナは２倍の効果
       int kouka = 1;
@@ -49,47 +63,12 @@ public class Jiro {
       }
 
       // 量 * 味 を満腹度に加算する
-      personData[0] += amount * taste * kouka;
+      this.hungry += amount * taste * kouka;
 
       // 幸福度データを更新する。次郎はバナナの時は量によって幸福度が上がる
-      personData[1] += amount;
+      this.happy += amount;
     }
 
   }
-
-    // バナナの色を返す関数
-    private static String getBananaColor(String[] data) {
-      return data[0];
-    }
-
-    // バナナの量を返す関数
-    private static int getBananaAmount(String[] data) {
-      return Integer.parseInt(data[1]) * Integer.parseInt(data[3]);
-    }
-
-    // バナナのうまみ具合を返す関数
-    private static int getBananaTaste(String[] data) {
-      return Integer.parseInt(data[2]);
-    }
-
-    // りんごの色を返す関数
-    private static String getAppleColor(String[] data) {
-      return data[0];
-    }
-
-    // りんごの量を返す関数
-    private static int getAppleAmount(String[] data) {
-      return Integer.parseInt(data[1]);
-    }
-
-    // りんごのうまみ具合を返す関数
-    private static int getAppleTaste(String[] data) {
-      return Integer.parseInt(data[2]);
-    }
-
-    // りんごのブランドを返す関数
-    private static String getAppleBland(String[] data) {
-      return data[3];
-    }
 
 }
