@@ -1,7 +1,17 @@
 public class Jiro extends Family {
   // int[] jiroData = { 0, 0};
-  private int hungry = 0;
-  private int happy = 0;
+  private String name = "Jiro";
+  private int hungry;
+  private int happy;
+
+  Jiro(int hungry, int happy){
+    this.hungry = hungry;
+    this.happy = happy;
+  }
+
+  public String getName(){
+    return this.name;
+  }
 
   // 次郎が空腹かどうかを返す
   public boolean isHungry() {

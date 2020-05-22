@@ -1,10 +1,21 @@
 public class Saburo extends Family {
   // int[] saburoData = { 0, 0, 0, 0};
-  private int appleAmount = 0;
-  private int appleTaste = 0;
-  private int bananaAmount = 0;
-  private int bananaTaste = 0;
+  private String name = "Saburos";
+  private int appleAmount;
+  private int appleTaste;
+  private int bananaAmount;
+  private int bananaTaste;
 
+  Saburo(int appleAmount, int appleTaste, int bananaAmount, int bananaTaste){
+    this.appleAmount = appleAmount;
+    this.appleTaste = appleTaste;
+    this.bananaAmount = bananaAmount;
+    this.bananaTaste = bananaTaste;
+  }
+
+  public String getName(){
+    return this.name;
+  }
 
   // 三郎が空腹かどうかを返す
   public boolean isHungry() {

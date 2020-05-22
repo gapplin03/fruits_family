@@ -1,11 +1,14 @@
-abstract class Family {
+public abstract class Family {
+
+  public abstract String getName();
+
   //空腹かどうかを返す
-  abstract boolean isHungry();
+  public abstract boolean isHungry();
 
   //幸福度を返す
-  abstract int isHappyPercent();
+  public abstract int isHappyPercent();
 
   //食べる処理
-  abstract void eat(String fruit, String[] fruitData);
+  public abstract void eat(String fruit, String[] fruitData);
 
 }
